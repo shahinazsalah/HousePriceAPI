@@ -1,4 +1,6 @@
 __pycache__/
 *.pyc
 .venv/
+.vscode/
+.ipynb_checkpoints/
 house_price_model.pkl

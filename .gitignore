@@ -1,6 +1,30 @@
+# Virtual Environment
+.venv/
+venv/
+
+# Python cache
 __pycache__/
 *.pyc
-.venv/
-.vscode/
+
+# Jupyter
 .ipynb_checkpoints/
-house_price_model.pkl
+
+# VS Code
+.vscode/
+
+# Environment variables
+.env
+
+# Dataset
+*.csv
+*.xlsx
+*.xls
+
+# Models & Weights
+*.pkl
+*.joblib
+*.pth
+*.pt
+*.h5
+*.onnx
+*.bin

@@ -1,29 +1,26 @@
 # 🏠 House Price Prediction API
 
-A Machine Learning project that predicts house prices using property features. The model was trained with Scikit-learn and deployed using FastAPI.
+A Machine Learning project that predicts house prices using property features. The final model was trained using Scikit-learn and deployed with FastAPI.
 
 ---
 
 # 📌 Project Overview
 
-This project predicts house prices based on several property features such as:
+This project predicts house prices using the following features:
 
 - Location
-- Property Status
-- Transaction Type
+- Floor
+- Transaction
 - Furnishing
 - Facing
 - Overlooking
-- Society
-- Number of Bathrooms
-- Number of Balconies
+- Bathroom
+- Balcony
+- Car Parking
 - Ownership
-- Super Area
-- Carpet Area
-- Parking Spaces
-- Floor Number
+- Carpet Area (sqft)
 
-The trained model is served through a FastAPI REST API.
+The final deployed model is a **Random Forest Regressor** wrapped inside a Scikit-learn Pipeline.
 
 ---
 
@@ -36,17 +33,19 @@ The trained model is served through a FastAPI REST API.
 - FastAPI
 - Joblib
 - Uvicorn
+- Matplotlib
+- Seaborn
 
 ---
 
 # 🤖 Machine Learning Models
 
-The following models were trained and evaluated:
+Models evaluated:
 
 - Linear Regression
 - Random Forest Regressor
 
-Random Forest achieved the best performance and was selected as the final model.
+The Random Forest model achieved the best performance and was selected for deployment.
 
 ---
 
@@ -54,8 +53,8 @@ Random Forest achieved the best performance and was selected as the final model.
 
 | Model | R² Score |
 |--------|----------|
-| Linear Regression | 0.140 |
-| Random Forest | 0.174 |
+| Linear Regression | 0.14 |
+| Random Forest | 0.17 |
 
 ---
 
@@ -64,26 +63,26 @@ Random Forest achieved the best performance and was selected as the final model.
 ```text
 HousePriceAPI
 │
-├── app.py
+├── main.py
+├── House_Price_Prediction.ipynb
 ├── requirements.txt
 ├── README.md
 ├── .gitignore
-└── house_price_model.pkl
+├── house_price_random_forest.pkl
+└── dataset.csv
 ```
-
-> Note: The trained model (`house_price_model.pkl`) is not included in this repository because its size exceeds GitHub's file size limit.
 
 ---
 
 # 🚀 Installation
 
-Clone the repository:
+Clone the repository
 
 ```bash
 git clone https://github.com/shahinazsalah/HousePriceAPI.git
 ```
 
-Install dependencies:
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -94,7 +93,7 @@ pip install -r requirements.txt
 # ▶️ Run the API
 
 ```bash
-uvicorn app:app --reload
+uvicorn main:app --reload
 ```
 
 ---
@@ -107,7 +106,7 @@ uvicorn app:app --reload
 GET /
 ```
 
-Returns:
+Response
 
 ```json
 {
@@ -123,48 +122,45 @@ Returns:
 GET /model
 ```
 
-Returns:
+Response
 
 ```json
 {
-  "status": "Model Loaded Successfully"
+  "status": "Random Forest Model Loaded Successfully"
 }
 ```
 
 ---
 
-## Predict House Price
+## Predict
 
 ```
 POST /predict
 ```
 
-Example Request:
+Example Request
 
 ```json
 {
-  "location": "new-delhi",
-  "Status": "Ready to Move",
+  "location": "kochi",
+  "Floor": 10,
   "Transaction": "Resale",
-  "Furnishing": "Semi-Furnished",
-  "facing": "East",
-  "overlooking": "Main Road",
-  "Society": "Nest Harmony",
-  "Bathroom": 2,
+  "Furnishing": "Furnished",
+  "facing": "North - East",
+  "overlooking": "Garden/Park, Main Road",
+  "Bathroom": 3,
   "Balcony": 2,
+  "Car_Parking": 1,
   "Ownership": "Freehold",
-  "Super_Area": "1200 sqft",
-  "carpet_area_sqft": 1000,
-  "parking_spaces": 1,
-  "floor_number": 3
+  "carpet_area_sqft": 1450
 }
 ```
 
-Example Response:
+Example Response
 
 ```json
 {
-  "Predicted Price": 1729717.64
+  "Predicted Price": 9570883.28
 }
 ```
 
@@ -172,13 +168,13 @@ Example Response:
 
 # 📖 API Documentation
 
-After running the server, open:
+After running the server, open
 
 ```
 http://127.0.0.1:8000/docs
 ```
 
-FastAPI automatically generates interactive Swagger documentation.
+to access the interactive Swagger UI.
 
 ---
 
@@ -189,5 +185,4 @@ FastAPI automatically generates interactive Swagger documentation.
 Data Science & AI Student
 
 GitHub:
-
 https://github.com/shahinazsalah

@@ -1,58 +1,82 @@
-# 🏠 House Price Prediction API
+# 🏠 House Price Prediction - Full-Stack Web Application
 
-A Machine Learning API that predicts house prices using property features. The final model was trained using **Scikit-learn** and deployed using **FastAPI**.
+A full-stack Machine Learning application designed to estimate property market values. The system features a **React + TypeScript** frontend and a **FastAPI** backend powered by a **Random Forest Regressor** model deployed on **Railway**.
 
 ---
 
 # 📌 Project Overview
 
-This project predicts house prices based on the following property features:
+This project provides an end-to-end platform for real estate price estimation based on the following property features:
 
 - Location
-- Floor
-- Transaction
-- Furnishing
-- Facing
-- Overlooking
-- Bathroom
-- Balcony
-- Car Parking
-- Ownership
 - Carpet Area (sqft)
+- Floor Number
+- Bathrooms
+- Balconies
+- Car Parking
+- Transaction Type
+- Furnishing Status
+- Facing Direction
+- Ownership Type
+- Overlooking View
 
-The final deployed model is a **Random Forest Regressor** wrapped inside a **Scikit-learn Pipeline**.
+The backend processes these features through a trained **Scikit-learn Pipeline** and returns an estimated property price instantly.
+
+---
+
+# 🌐 Live Demo
+
+### Backend API
+
+https://housepriceapi-production-ecc5.up.railway.app
+
+### Swagger Documentation
+
+https://housepriceapi-production-ecc5.up.railway.app/docs
+
+### ReDoc Documentation
+
+https://housepriceapi-production-ecc5.up.railway.app/redoc
 
 ---
 
 # 🛠 Technologies Used
 
+## Frontend
+
+- React
+- TypeScript
+- Vite
+- React Router DOM
+- Axios
+- CSS3
+
+## Backend
+
 - Python
+- FastAPI
 - Pandas
 - NumPy
 - Scikit-learn
-- FastAPI
 - Joblib
 - Uvicorn
+
+## Deployment
+
+- Railway
 
 ---
 
 # 🤖 Machine Learning Models
 
-Models trained:
-
-- Linear Regression
-- Random Forest Regressor
-
-Random Forest achieved the best performance and was selected as the final model.
-
----
-
-# 📊 Model Performance
+The following models were trained and evaluated:
 
 | Model | R² Score |
-|--------|----------|
+|------|------:|
 | Linear Regression | 0.14 |
-| Random Forest Regressor | 0.17 |
+| **Random Forest Regressor** | **0.17** |
+
+The **Random Forest Regressor** achieved the highest performance and was selected as the final deployed model.
 
 ---
 
@@ -61,30 +85,66 @@ Random Forest achieved the best performance and was selected as the final model.
 ```text
 HousePriceAPI
 │
+├── frontend/
+│   ├── src/
+│   │   ├── api/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── types/
+│   │   ├── App.tsx
+│   │   ├── main.tsx
+│   │   └── App.css
+│   ├── package.json
+│   └── vite.config.ts
+│
 ├── images/
+│   ├── ui_form.png
+│   ├── ui_result.png
 │   ├── api_predict.png
-│   ├── api_response.png
 │   ├── actual_vs_predicted.png
 │   └── feature_importance.png
 │
 ├── app.py
 ├── Final_Proj.ipynb
-├── README.md
-├── requirements.txt
 ├── house_price_random_forest.pkl
+├── requirements.txt
+├── README.md
 └── .gitignore
 ```
-
-> The original dataset is not included because it exceeds GitHub's size limit.
 
 ---
 
 # ⚙️ Installation
 
-Clone the repository
+## 1. Clone Repository
 
 ```bash
 git clone https://github.com/shahinazsalah/HousePriceAPI.git
+cd HousePriceAPI
+```
+
+---
+
+## 2. Backend Setup
+
+Create a virtual environment
+
+```bash
+python -m venv .venv
+```
+
+Activate it
+
+### Windows
+
+```bash
+.venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+source .venv/bin/activate
 ```
 
 Install dependencies
@@ -93,12 +153,44 @@ Install dependencies
 pip install -r requirements.txt
 ```
 
----
-
-# ▶️ Run the API
+Run FastAPI
 
 ```bash
 uvicorn app:app --reload
+```
+
+Backend runs at:
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+## 3. Frontend Setup
+
+Navigate to frontend
+
+```bash
+cd frontend
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run React application
+
+```bash
+npm run dev
+```
+
+Frontend runs at
+
+```
+http://localhost:5173
 ```
 
 ---
@@ -143,7 +235,7 @@ Response
 POST /predict
 ```
 
-Example Request
+### Example Request
 
 ```json
 {
@@ -161,63 +253,45 @@ Example Request
 }
 ```
 
-Example Response
+### Example Response
 
 ```json
 {
-  "Predicted Price": 9570883.28
+  "Predicted Price": 8350154.90
 }
-```
-
----
-
-# 🌍 Live Demo
-
-### API
-
-https://housepriceapi-production-ecc5.up.railway.app
-
-### Swagger UI
-
-https://housepriceapi-production-ecc5.up.railway.app/docs
-
-### ReDoc
-
-https://housepriceapi-production-ecc5.up.railway.app/redoc
-
----
-
-# 📖 API Documentation
-
-### Local
-
-```
-http://127.0.0.1:8000/docs
-```
-
-### Live
-
-```
-https://housepriceapi-production-ecc5.up.railway.app/docs
 ```
 
 ---
 
 # 📸 Screenshots
 
-### Swagger - Prediction Request
+## React User Interface
 
-![Prediction Request](images/api_predict.png)
+### Property Details Form
 
-### Swagger - Prediction Response
+![Property Form](images/prediction_form.png)
 
-![Prediction Response](images/api_response.png)
+### Prediction Result
 
-### Actual vs Predicted Prices
+![Prediction Result](images/prediction_result.png)
+
+---
+
+## FastAPI
+
+### Swagger Request
+
+![Swagger Request](images/api_predict.png)
+
+---
+
+## Machine Learning
+
+### Actual vs Predicted
 
 ![Actual vs Predicted](images/actual_vs_predicted.png)
 
-### Top 15 Feature Importance
+### Feature Importance
 
 ![Feature Importance](images/feature_importance.png)
 
@@ -229,6 +303,22 @@ https://housepriceapi-production-ecc5.up.railway.app/docs
 
 Data Science & AI Student
 
-GitHub Repository:
+GitHub:
 
-https://github.com/shahinazsalah/HousePriceAPI
+https://github.com/shahinazsalah
+
+---
+
+# 📌 Project Submission
+
+This repository represents the individual submission of **Shahinaz Salah** for the House Price Prediction course project.
+
+The project includes:
+
+- Data Cleaning & Preprocessing
+- Machine Learning Model Training
+- Model Evaluation
+- FastAPI Backend
+- React Frontend
+- Railway Deployment
+- GitHub Documentation

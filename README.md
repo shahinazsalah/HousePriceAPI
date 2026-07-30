@@ -174,30 +174,19 @@ FastAPI automatically generates Swagger UI documentation.
 
 ---
 
-# 📷 Screenshots
+## 📸 Screenshots
 
-## Swagger - Prediction Request
-
+### Swagger - Prediction Request
 ![Prediction Request](images/api_predict.png)
 
----
-
-## Swagger - Prediction Response
-
+### Swagger - Prediction Response
 ![Prediction Response](images/api_response.png)
 
----
-
-## Actual vs Predicted Prices
-
+### Actual vs Predicted Prices
 ![Actual vs Predicted](images/actual_vs_predicted.png)
 
----
-
-## Top 15 Feature Importance
-
+### Top 15 Feature Importance
 ![Feature Importance](images/feature_importance.png)
-
 ---
 
 # 👩‍💻 Author

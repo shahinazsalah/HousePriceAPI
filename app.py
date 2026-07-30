@@ -1,10 +1,22 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import joblib
 import pandas as pd
 import numpy as np
 from pydantic import BaseModel
 
 app = FastAPI()
+
+# ---------------------------------------------------------
+# إضافة إعدادات CORS للسماح بالاتصال من الـ Frontend
+# ---------------------------------------------------------
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # يتيح لجميع المصادر الاتصال بالـ API
+    allow_credentials=True,
+    allow_methods=["*"],  # يتيح جميع أنواع الطلبات (POST, GET, OPTIONS, إلخ)
+    allow_headers=["*"],
+)
 
 # Load the trained Random Forest Pipeline
 model = joblib.load("house_price_random_forest.pkl")

@@ -47,6 +47,15 @@ Random Forest achieved the best performance and was selected as the final model.
 
 ---
 
+# 📊 Model Performance
+
+| Model | R² Score |
+|--------|----------|
+| Linear Regression | 0.14 |
+| Random Forest Regressor | 0.17 |
+
+---
+
 # 📂 Project Structure
 
 ```text
@@ -70,7 +79,7 @@ HousePriceAPI
 
 ---
 
-# ⚙ Installation
+# ⚙️ Installation
 
 Clone the repository
 
@@ -86,7 +95,7 @@ pip install -r requirements.txt
 
 ---
 
-# ▶ Run the API
+# ▶️ Run the API
 
 ```bash
 uvicorn app:app --reload
@@ -162,31 +171,56 @@ Example Response
 
 ---
 
+# 🌍 Live Demo
+
+### API
+
+https://housepriceapi-production-ecc5.up.railway.app
+
+### Swagger UI
+
+https://housepriceapi-production-ecc5.up.railway.app/docs
+
+### ReDoc
+
+https://housepriceapi-production-ecc5.up.railway.app/redoc
+
+---
+
 # 📖 API Documentation
 
-After running the project, open:
+### Local
 
 ```
 http://127.0.0.1:8000/docs
 ```
 
-FastAPI automatically generates Swagger UI documentation.
+### Live
+
+```
+https://housepriceapi-production-ecc5.up.railway.app/docs
+```
 
 ---
 
-## 📸 Screenshots
+# 📸 Screenshots
 
 ### Swagger - Prediction Request
+
 ![Prediction Request](images/api_predict.png)
 
 ### Swagger - Prediction Response
+
 ![Prediction Response](images/api_response.png)
 
 ### Actual vs Predicted Prices
+
 ![Actual vs Predicted](images/actual_vs_predicted.png)
 
 ### Top 15 Feature Importance
+
 ![Feature Importance](images/feature_importance.png)
+
 ---
 
 # 👩‍💻 Author
@@ -195,5 +229,6 @@ FastAPI automatically generates Swagger UI documentation.
 
 Data Science & AI Student
 
-GitHub:
+GitHub Repository:
+
 https://github.com/shahinazsalah/HousePriceAPI

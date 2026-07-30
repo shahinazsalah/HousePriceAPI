@@ -1,12 +1,12 @@
 # 🏠 House Price Prediction API
 
-A Machine Learning project that predicts house prices using property features. The final model was trained using Scikit-learn and deployed with FastAPI.
+A Machine Learning API that predicts house prices using property features. The final model was trained using **Scikit-learn** and deployed using **FastAPI**.
 
 ---
 
 # 📌 Project Overview
 
-This project predicts house prices using the following features:
+This project predicts house prices based on the following property features:
 
 - Location
 - Floor
@@ -20,7 +20,7 @@ This project predicts house prices using the following features:
 - Ownership
 - Carpet Area (sqft)
 
-The final deployed model is a **Random Forest Regressor** wrapped inside a Scikit-learn Pipeline.
+The final deployed model is a **Random Forest Regressor** wrapped inside a **Scikit-learn Pipeline**.
 
 ---
 
@@ -33,28 +33,17 @@ The final deployed model is a **Random Forest Regressor** wrapped inside a Sciki
 - FastAPI
 - Joblib
 - Uvicorn
-- Matplotlib
-- Seaborn
 
 ---
 
 # 🤖 Machine Learning Models
 
-Models evaluated:
+Models trained:
 
 - Linear Regression
 - Random Forest Regressor
 
-The Random Forest model achieved the best performance and was selected for deployment.
-
----
-
-# 📊 Model Performance
-
-| Model | R² Score |
-|--------|----------|
-| Linear Regression | 0.14 |
-| Random Forest | 0.17 |
+Random Forest achieved the best performance and was selected as the final model.
 
 ---
 
@@ -63,18 +52,25 @@ The Random Forest model achieved the best performance and was selected for deplo
 ```text
 HousePriceAPI
 │
-├── main.py
-├── House_Price_Prediction.ipynb
-├── requirements.txt
+├── images/
+│   ├── api_predict.png
+│   ├── api_response.png
+│   ├── actual_vs_predicted.png
+│   └── feature_importance.png
+│
+├── app.py
+├── Final_Proj.ipynb
 ├── README.md
-├── .gitignore
+├── requirements.txt
 ├── house_price_random_forest.pkl
-└── dataset.csv
+└── .gitignore
 ```
+
+> The original dataset is not included because it exceeds GitHub's size limit.
 
 ---
 
-# 🚀 Installation
+# ⚙ Installation
 
 Clone the repository
 
@@ -90,15 +86,15 @@ pip install -r requirements.txt
 
 ---
 
-# ▶️ Run the API
+# ▶ Run the API
 
 ```bash
-uvicorn main:app --reload
+uvicorn app:app --reload
 ```
 
 ---
 
-# 🌐 API Endpoints
+# 🚀 API Endpoints
 
 ## Home
 
@@ -168,13 +164,39 @@ Example Response
 
 # 📖 API Documentation
 
-After running the server, open
+After running the project, open:
 
 ```
 http://127.0.0.1:8000/docs
 ```
 
-to access the interactive Swagger UI.
+FastAPI automatically generates Swagger UI documentation.
+
+---
+
+# 📷 Screenshots
+
+## Swagger - Prediction Request
+
+![Prediction Request](images/api_predict.png)
+
+---
+
+## Swagger - Prediction Response
+
+![Prediction Response](images/api_response.png)
+
+---
+
+## Actual vs Predicted Prices
+
+![Actual vs Predicted](images/actual_vs_predicted.png)
+
+---
+
+## Top 15 Feature Importance
+
+![Feature Importance](images/feature_importance.png)
 
 ---
 
@@ -185,4 +207,4 @@ to access the interactive Swagger UI.
 Data Science & AI Student
 
 GitHub:
-https://github.com/shahinazsalah
+https://github.com/shahinazsalah/HousePriceAPI

@@ -21,10 +21,10 @@ __pycache__/
 *.xls
 
 # Models & Weights
-*.pkl
 *.joblib
 *.pth
 *.pt
 *.h5
 *.onnx
 *.bin
+!house_price_random_forest.pkl
